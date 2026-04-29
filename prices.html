@@ -1,1 +1,57 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Precious Metals Tracker | Prices</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const prices = [
+            { metal: "Gold", symbol: "Au", price: 2320.50, unit: "USD/oz" },
+            { metal: "Silver", symbol: "Ag", price: 27.81, unit: "USD/oz" },
+            { metal: "Platinum", symbol: "Pt", price: 932.20, unit: "USD/oz" },
+            { metal: "Palladium", symbol: "Pd", price: 1076.60, unit: "USD/oz" }
+        ];
+        let tbody = document.getElementById('prices-table-body');
+        prices.forEach(({metal, symbol, price, unit}) => {
+            let row = `<tr>
+                <td>${metal} (${symbol})</td>
+                <td>${price.toLocaleString()}</td>
+                <td>${unit}</td>
+            </tr>`;
+            tbody.innerHTML += row;
+        });
+    });
+    </script>
+</head>
+<body>
+    <header>
+        <h1><img src="metals.jpg" alt="Site Logo: Precious Metals" class="logo"> Precious Metals Tracker</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="prices.html" class="active">Prices</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Current Precious Metal Trading Prices</h2>
+        <table>
+            <caption>Prices updated for demonstration purposes</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Metal</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Unit</th>
+                </tr>
+            </thead>
+            <tbody id="prices-table-body"></tbody>
+        </table>
+        <p class="disclaimer">Data is for illustration only. <a href="https://www.kitco.com/market/" target="_blank" rel="noopener">See live market data (Kitco)</a>.</p>
+    </main>
+    <footer>
+        &copy; 2026 Precious Metals Tracker
+    </footer>
+</body>
+</html>
